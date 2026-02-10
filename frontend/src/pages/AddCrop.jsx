@@ -4,6 +4,7 @@ import {assets} from '../assets/assets.js'
 import {ShopContext} from '../context/ShopContext'
 import { Link } from 'react-router';
 import axios from 'axios';
+import Navbar from '../components/Navbar.jsx';
 
 
 const AddCrop = () => {
@@ -47,6 +48,7 @@ useEffect(()=>{
 })
   return (
     <>
+      <Navbar/>
       <form onSubmit={submitHandler} >
       <div className="w-4/5 sm:w-2/5 m-auto max-sm:text-sm flex flex-col justify-center items-center gap-2 mt-5 mb-15 border rounded-lg bg-gray-100">
         <div>

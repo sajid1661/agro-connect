@@ -5,6 +5,7 @@ import { Form } from 'react-router';
 import { useContext } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { useEffect } from 'react';
+import Navbar from '../components/Navbar';
 const Login = () => {
   const [currentState,setCurrentState]=useState('Login');
   const [name,setName]=useState('');
@@ -52,6 +53,8 @@ const Login = () => {
   },[token])
   
   return (
+    <>
+    <Navbar/>
     <form onSubmit={onSubmitHandler} className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800  ">
       <div className="inline-flex items-center gap-2 mb-2 mt-10">
         <p className="prata-regular text-3xl">{currentState}</p>
@@ -107,6 +110,7 @@ const Login = () => {
         {currentState === "Login" ? "Login" : "Sign Up"}
       </button>
     </form>
+    </>
   )
 }
 
