@@ -31,5 +31,15 @@ const addCrop=async(req,res)=>{
    }
 }
 
+const listCrops=async(req,res)=>{
+    try {
+    const crops=await cropModel.find();
+        res.json({success:true,crops});
 
-export {addCrop} 
+    } catch (error) {
+        res.json({success:false,message:error.message});
+    }
+}
+
+
+export {addCrop,listCrops} 

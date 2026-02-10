@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { Crops } from "../assets/assets";
 import { useNavigate } from "react-router";
+import axios from 'axios'
 // Step1: Create a context
 export const ShopContext=createContext(null);
 
@@ -8,7 +9,7 @@ export const ShopContext=createContext(null);
 
 const ShopContextProvider=(props)=>{
 
-    const [crops,setCrops]=useState(Crops);
+    const [crops,setCrops]=useState([]);
     const [currency,setCurrency]=useState("RS");
     const [unit,setUnit]=useState("KG");
     const [token,setToken]=useState("");
@@ -17,9 +18,22 @@ const ShopContextProvider=(props)=>{
     const backendUrl=import.meta.env.VITE_BACKEND_URL;
     const navigate=useNavigate();
 
+const getCropData=async()=>{
+      try {
+        const response=await axios.get(backendUrl+'/api/crop/list-crops');
+        if(response.data.success){
+          setCrops(response.data.crops);
+        }else{
+          console.log(response.data.message);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
 useEffect(()=>{
-    
-})
+    getCropData();
+},[crops])
 
 // Define global values you want to share
 const value={
