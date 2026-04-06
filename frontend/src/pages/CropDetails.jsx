@@ -22,7 +22,7 @@ const CropDetails = () => {
           <p>Type: {crop.type}</p>
         </div>
         <div className='flex flex-col gap-2 sm:flex-row justify-between sm:px-4 mb-2 '>
-          <p>Farmer: {crop.farmer} </p>
+          <p>Farmer Name: {crop.farmer} </p>
           <p>Location: {crop.location}</p>
         </div>
         <div className='flex flex-col gap-2 sm:flex-row justify-between sm:px-4 mb-10'>
